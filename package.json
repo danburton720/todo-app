@@ -5,7 +5,13 @@
   "main": "server/src/index.js",
   "scripts": {
     "start": "env-cmd -f server/config/dev.env nodemon server/src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "env-cmd -f ./server/config/dev.env jest --watch --runInBand"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/server/src/__tests__/fixtures/"
+    ]
   },
   "repository": {
     "type": "git",
@@ -20,11 +26,14 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-query-boolean": "^2.0.0",
     "mongoose": "^5.10.7",
     "socket.io": "^2.3.0"
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",
-    "nodemon": "^2.0.4"
+    "jest": "^26.4.2",
+    "nodemon": "^2.0.4",
+    "supertest": "^5.0.0"
   }
 }
