@@ -8,16 +8,22 @@ import IconButton from '../common/IconButton/IconButton';
 export default class Todo extends React.PureComponent {
     constructor(props) {
         super(props);
+        this.onClick = this.onClick.bind(this);
         this.delete = this.delete.bind(this);
     }
 
-    delete() {
+    onClick() {
+        this.props.onClick(this.props.id);
+    }
+
+    delete(e) {
+        e.stopPropagation();
         this.props.delete(this.props.id)
     }
 
     render() {
         return (
-            <div>
+            <div id={`todo-${this.props.id}`} onClick={this.onClick}>
                 <span>
                     {this.props.description}
                 </span>
