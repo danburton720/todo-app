@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {getTodos, deleteTodo, setActiveTodo} from '../actions/todo.actions';
+import {addTodo, getTodos, deleteTodo, setActiveTodo} from '../actions/todo.actions';
 import TodoList from '../components/todo/TodoList';
+import AddTodo from '../components/todo/AddToDo';
 import {socket} from '../App';
 
 class TodosContainer extends React.Component {
@@ -31,6 +32,7 @@ class TodosContainer extends React.Component {
         }
         return (
             <div>
+                <AddTodo onSubmit={this.props.addTodo}/>
                 <TodoList
                     active={this.props.active}
                     delete={this.props.deleteTodo}
@@ -49,4 +51,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, {getTodos, deleteTodo, setActiveTodo})(TodosContainer);
+export default connect(mapStateToProps, {getTodos, addTodo, deleteTodo, setActiveTodo})(TodosContainer);
