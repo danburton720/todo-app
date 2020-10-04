@@ -6,6 +6,8 @@
   .todoDescription {
     flex: 1;
     font-size: 0.8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .todoActions {
     display: flex;

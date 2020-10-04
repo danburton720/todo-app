@@ -1,6 +1,9 @@
 .tasksContainer {
   flex: 1;
   padding: 20px;
+  h1 {
+    word-break: break-word;
+  }
 }
 
 .showHideCompletedWrapper {

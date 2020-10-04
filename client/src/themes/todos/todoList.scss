@@ -1,0 +1,11 @@
+.todoList {
+  flex: 1;
+  overflow-y: scroll;
+  width: 300px;
+}
+
+@media (max-width: 800px) {
+  .todoList {
+    width: 100vw;
+  }
+}

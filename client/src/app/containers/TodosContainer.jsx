@@ -8,7 +8,7 @@ import {Plus} from 'react-feather';
 import {socket} from '../App';
 import SpinnerLoader from '../components/common/SpinnerLoader/SpinnerLoader';
 
-import styles from '../../themes/todos/todospage.scss';
+import styles from '../../themes/todos/todosContainer.scss';
 
 class TodosContainer extends React.Component {
     constructor(props) {
@@ -18,6 +18,7 @@ class TodosContainer extends React.Component {
         };
         this.addNewTodo = this.addNewTodo.bind(this);
         this.addTodo = this.addTodo.bind(this);
+        this.hideAddTodo = this.hideAddTodo.bind(this);
     }
 
     componentDidMount() {
@@ -28,7 +29,7 @@ class TodosContainer extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.active !== prevProps.active && this.props.active !== null) {
+        if (this.props.active !== prevProps.active && prevProps.active !== null) {
             document.getElementById(`todo-${this.props.active}`).scrollIntoView({
                 behavior: 'smooth'
             });
@@ -43,9 +44,13 @@ class TodosContainer extends React.Component {
 
     addTodo(...args) {
         this.props.addTodo(...args, () => {
-            this.setState({
-                newTodo: false
-            });
+            this.hideAddTodo()
+        });
+    }
+
+    hideAddTodo() {
+        this.setState({
+            newTodo: false
         });
     }
 
@@ -54,9 +59,12 @@ class TodosContainer extends React.Component {
             <div className={styles.todosContainer}>
                 {this.props.loaded ? (
                     <>
-                        {this.state.newTodo && (
-                            <AddTodo onSubmit={this.addTodo}/>
-                        )}
+                        <div className={styles.todosHeader}>
+                            <h2>{this.state.newTodo ? 'Add Todo List' : 'Todo Lists'}</h2>
+                            {this.state.newTodo && (
+                                <AddTodo onSubmit={this.addTodo} cancel={this.hideAddTodo}/>
+                            )}
+                        </div>
                         <TodoList
                             active={this.props.active}
                             delete={this.props.deleteTodo}
@@ -66,7 +74,7 @@ class TodosContainer extends React.Component {
                         {!this.state.newTodo && (
                             <div className={styles.addTodo} onClick={this.addNewTodo}>
                                 <Plus size={18}/>
-                                <span>Add Todo</span>
+                                <span>Add Todo List</span>
                             </div>
                         )}
                     </>

@@ -20,6 +20,12 @@ export default class AddTask extends React.Component {
         this.toggleAdd = this.toggleAdd.bind(this);
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if(this.state.add && !prevState.add) {
+            this.input.focus();
+        }
+    }
+
     onSubmit(e) {
         e.preventDefault();
         if (!this.invalidTask()) {
@@ -61,6 +67,7 @@ export default class AddTask extends React.Component {
             return (
                 <form className={styles.addTaskForm} onSubmit={this.onSubmit}>
                     <input
+                        ref={ref => this.input = ref}
                         placeholder="Jot down a task..."
                         onChange={this.onChangeTask}
                         value={this.state.task.value}
