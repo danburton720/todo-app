@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from '../../../themes/todos/addtodo.scss';
+
 export default class AddTodo extends React.Component {
     constructor(props) {
         super(props);
@@ -39,14 +41,14 @@ export default class AddTodo extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.onSubmit}>
+            <form className={styles.addTodo} onSubmit={this.onSubmit}>
                 <input
                     placeholder="add new todo list"
                     onChange={this.onChangeTodo}
                     value={this.state.todo.value}
                 >
                 </input>
-                <div>
+                <div className={styles.buttonContainer}>
                     <button type="submit">add</button>
                 </div>
             </form>

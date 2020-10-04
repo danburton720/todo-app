@@ -1,0 +1,29 @@
+.taskWrapper {
+  padding: 10px 12px;
+  color: #333;
+  display: flex;
+  box-shadow: rgba(211, 220, 227, 0.8) 0 0 20px;
+  margin-bottom: 20px;
+  border-radius: 14px;
+  align-items: center;
+  height: 40px;
+
+  input {
+    padding: 0 10px;
+    border: none;
+    background: none;
+    flex: 1;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  .iconButton {
+    padding: 8px;
+  }
+}
+
+.taskWrapper:nth-last-of-type(1) {
+  margin-bottom: 0;
+}

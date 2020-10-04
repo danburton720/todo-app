@@ -11,6 +11,8 @@ import {socket} from '../App';
 import {activeTodoSelector} from '../selectors/todos.selector';
 import SpinnerLoader from '../components/common/SpinnerLoader/SpinnerLoader';
 
+import styles from '../../themes/tasks/taskspage.scss'
+
 class TasksContainer extends React.Component {
     constructor(props) {
         super(props);
@@ -78,16 +80,22 @@ class TasksContainer extends React.Component {
             );
         }
         return (
-            <div>
+            <div className={styles.tasksContainer}>
                 <h1>{this.props.todo ? this.props.todo.description : ''}</h1>
                 <AddTask onSubmit={this.addTask}/>
                 {isPopulatedArray(this.props.complete) && (
                     <>
-                        <div onClick={this.showHideCompleted}>
-                            <span>{this.state.showCompleted ? 'Hide' : 'Show'} completed tasks ({this.props.complete.length})</span>
+                        <div className={styles.showHideCompletedWrapper} onClick={this.showHideCompleted}>
+                            <span
+                                className={styles.showHideCompleted}
+                            >
+                                {this.state.showCompleted ? 'Hide ' : 'Show '}
+                                completed tasks
+                                ({this.props.complete.length})
+                            </span>
                         </div>
                         {this.state.showCompleted && (
-                            <div>
+                            <div className={styles.completedTaskList}>
                                 <TaskList
                                     delete={this.deleteTask}
                                     update={this.updateTask}
@@ -106,7 +114,7 @@ class TasksContainer extends React.Component {
                         tasks={this.props.incomplete}
                     />
                 ) : (
-                    <div>
+                    <div className={styles.emptyTaskList}>
                         <span>You currently have no tasks, to add a task click the <b>Add Task</b> button</span>
                     </div>
                 )}

@@ -8,6 +8,8 @@ import {Plus} from 'react-feather';
 import {socket} from '../App';
 import SpinnerLoader from '../components/common/SpinnerLoader/SpinnerLoader';
 
+import styles from '../../themes/todos/todospage.scss';
+
 class TodosContainer extends React.Component {
     constructor(props) {
         super(props);
@@ -49,7 +51,7 @@ class TodosContainer extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className={styles.todosContainer}>
                 {this.props.loaded ? (
                     <>
                         {this.state.newTodo && (
@@ -62,7 +64,7 @@ class TodosContainer extends React.Component {
                             onClickTodo={this.props.setActiveTodo}
                         />
                         {!this.state.newTodo && (
-                            <div onClick={this.addNewTodo}>
+                            <div className={styles.addTodo} onClick={this.addNewTodo}>
                                 <Plus size={18}/>
                                 <span>Add Todo</span>
                             </div>
