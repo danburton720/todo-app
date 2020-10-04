@@ -15,3 +15,25 @@ export const getTasks = ( todoId ) => {
         }
     };
 };
+
+export const deleteTask = ( todoId, taskId ) => {
+    return async dispatch => {
+        try {
+            await axiosInstance.delete(`/todos/${todoId}/tasks/${taskId}`);
+            dispatch(getTasks(todoId));
+        }catch (e) {
+            console.log(e);
+        }
+    };
+};
+
+export const updateTask = ( todoId, taskId, data ) => {
+    return async dispatch => {
+        try {
+            await axiosInstance.patch(`/todos/${todoId}/tasks/${taskId}`, data);
+            dispatch(getTasks(todoId));
+        }catch (e) {
+            console.log(e);
+        }
+    };
+};

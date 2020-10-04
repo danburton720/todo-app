@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {getTasks} from "../actions/task.actions";
+import {getTasks, deleteTask, updateTask} from "../actions/task.actions";
 
 import TaskList from '../components/task/TaskList';
 
@@ -14,6 +14,8 @@ class TasksContainer extends React.Component {
         return (
             <div>
                 <TaskList
+                    delete={this.props.deleteTask}
+                    toggleCompleted={this.props.toggleCompleted}
                     tasks={this.props.list}
                 />
             </div>
@@ -30,6 +32,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         getTasks: () => dispatch(getTasks(ownProps.todoId)),
+        deleteTask: (taskId) => dispatch(deleteTask(ownProps.todoId, taskId)),
+        toggleCompleted: (taskId, completed) => dispatch(updateTask(ownProps.todoId, taskId, {completed}))
     };
 };
 

@@ -11,6 +11,8 @@ export default class TaskList extends React.Component {
                     id={task._id}
                     description={task.description}
                     completed={task.completed}
+                    delete={this.props.delete}
+                    toggleCompleted={this.props.toggleCompleted}
                 />
             )
         });
