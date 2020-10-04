@@ -5,6 +5,8 @@ import IconButton from '../common/IconButton/IconButton';
 
 import Toggle from '../common/Toggle/Toggle';
 
+import styles from '../../../themes/tasks/task.scss';
+
 export default class Task extends React.Component {
     constructor(props) {
         super(props);
@@ -41,7 +43,7 @@ export default class Task extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className={styles.taskWrapper}>
                 <Toggle
                     enabled={this.props.completed}
                     onToggle={this.toggleCompleted}

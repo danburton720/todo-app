@@ -2,6 +2,8 @@ import React from 'react';
 
 import Task from './Task';
 
+import styles from '../../../themes/tasks/tasklist.scss';
+
 export default class TaskList extends React.Component {
     returnTasks() {
         return this.props.tasks.map(task => {
@@ -21,7 +23,7 @@ export default class TaskList extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className={styles.taskList}>
                 {this.returnTasks()}
             </div>
         );

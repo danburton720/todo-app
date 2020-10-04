@@ -3,6 +3,8 @@ import io from 'socket.io-client';
 import TodosContainer from './containers/TodosContainer';
 import TasksContainer from './containers/TasksContainer';
 
+import styles from '../themes/index.scss';
+
 export const socket = io('http://localhost:5000');
 
 export default class App extends React.Component {
@@ -14,11 +16,11 @@ export default class App extends React.Component {
 
     render() {
         return (
-            <div>
-                <div>
+            <div className={styles.app}>
+                <div className={styles.sideBar}>
                     <TodosContainer/>
                 </div>
-                <div>
+                <div className={styles.main}>
                     <TasksContainer/>
                 </div>
             </div>

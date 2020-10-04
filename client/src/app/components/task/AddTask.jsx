@@ -2,6 +2,8 @@ import React from 'react';
 
 import {Plus} from 'react-feather';
 
+import styles from '../../../themes/tasks/addtask.scss';
+
 export default class AddTask extends React.Component {
     constructor(props) {
         super(props);
@@ -57,21 +59,21 @@ export default class AddTask extends React.Component {
     render() {
         if (this.state.add) {
             return (
-                <form onSubmit={this.onSubmit}>
+                <form className={styles.addTaskForm} onSubmit={this.onSubmit}>
                     <input
                         placeholder="Jot down a task..."
                         onChange={this.onChangeTask}
                         value={this.state.task.value}
                     />
                     <div>
-                        <button disabled={this.invalidTask()} type="submit">Add</button>
-                        <button onClick={this.toggleAdd} type="button">Cancel</button>
+                        <button disabled={this.invalidTask()} className='primary mr1' type="submit">Add</button>
+                        <button onClick={this.toggleAdd} className='primary inverted' type="button">Cancel</button>
                     </div>
                 </form>
             );
         }
         return (
-            <div onClick={this.toggleAdd}>
+            <div onClick={this.toggleAdd} className={styles.addTask}>
                 <Plus size={18}/>
                 <span>Add Task</span>
             </div>

@@ -4,6 +4,8 @@ import Todo from './Todo';
 
 import isPopulatedArray from '../../util/isPopulatedArray';
 
+import styles from '../../../themes/todos/todolist.scss';
+
 export default class TodoList extends React.Component {
     returnTodos() {
         if (isPopulatedArray(this.props.todos)) {
@@ -24,7 +26,7 @@ export default class TodoList extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className={styles.todoList}>
                 {this.returnTodos()}
             </div>
         );
