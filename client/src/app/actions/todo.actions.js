@@ -6,7 +6,6 @@ export const getTodos = () => {
     return async dispatch => {
         try {
             const response = await axiosInstance.get('/todos');
-            console.log(response.data)
             dispatch({
                 type: SET_TODOS,
                 payload: response.data

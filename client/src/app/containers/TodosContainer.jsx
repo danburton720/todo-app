@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {getTodos} from '../actions/todo.actions';
+import TodoList from '../components/todo/TodoList';
 
 class TodosContainer extends React.Component {
 
@@ -8,20 +9,12 @@ class TodosContainer extends React.Component {
         this.props.getTodos();
     }
 
-    returnTodos() {
-        return this.props.list.map(todo => {
-            return (
-                <div>
-                    {todo.description}
-                </div>
-            )
-        })
-    }
-
     render() {
         return (
             <div>
-                {this.returnTodos()}
+                <TodoList
+                    todos={this.props.list}
+                />
             </div>
         )
     }
