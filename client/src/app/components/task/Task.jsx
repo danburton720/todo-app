@@ -25,10 +25,11 @@ export default class Task extends React.Component {
                 <div>
                     <button
                         enabled={this.props.completed}
-                        onToggle={this.toggleCompleted}
+                        onClick={this.toggleCompleted}
                     >
                         TempToggle
                     </button>
+                    completed: {this.props.completed.toString()}
                     <input
                         value={this.props.description}
                     />
