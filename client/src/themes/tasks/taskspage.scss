@@ -35,4 +35,11 @@
 
 .emptyTaskList {
   padding-top: 20px;
+  color: rgba(37, 37, 38, 0.82);
+}
+
+@media (max-width: 800px) {
+  .tasksContainer {
+    padding: 0 20px 20px 20px;
+  }
 }
