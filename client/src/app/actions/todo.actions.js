@@ -1,4 +1,5 @@
 import axiosInstance from '../util/axiosInstance';
+import {getTasks} from "./task.actions";
 import {socket} from '../App';
 
 export const SET_TODOS = 'SET_TODOS';
@@ -13,21 +14,33 @@ export const setActiveTodo = id => {
     };
 };
 
-export const getTodos = () => {
+export const getTodos = (callback) => {
     return async dispatch => {
+        dispatch({
+            type: SET_TODOS,
+            meta: {
+                loaded: false
+            }
+        });
         try {
             const response = await axiosInstance.get('/todos');
             dispatch({
                 type: SET_TODOS,
+                meta: {
+                    loaded: true
+                },
                 payload: response.data
             });
+            if(callback) {
+                callback();
+            }
         } catch (e) {
             console.log(e);
         }
     };
 };
 
-export const addTodo = (data) => {
+export const addTodo = (data, callback) => {
     return async dispatch => {
         try {
             const response = await axiosInstance.post(`/todos`, data);
@@ -35,13 +48,13 @@ export const addTodo = (data) => {
                 type: ADD_TODO,
                 payload: response.data
             });
+            callback();
             socket.emit('todosChanged');
         } catch (e) {
             console.log(e);
         }
     };
 };
-
 
 export const deleteTodo = (todoId) => {
     return async dispatch => {
