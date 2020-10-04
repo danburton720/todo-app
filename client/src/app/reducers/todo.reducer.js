@@ -1,8 +1,9 @@
 import {SET_TODOS, ADD_TODO, DELETE_TODO, SET_ACTIVE_TODO} from "../actions/todo.actions";
-import isPopulatedArray from "../util/isPopulatedArray";
+import isPopulatedArray from '../util/isPopulatedArray';
 
 export const initialState = {
     active: null,
+    loaded: false,
     list: []
 };
 
@@ -11,8 +12,9 @@ function todoReducer(state = initialState, action) {
         case SET_TODOS:
             return {
                 ...state,
+                loaded: !!action.meta.loaded,
                 active: isPopulatedArray(action.payload) ? action.payload[0]._id : state.active,
-                list: action.payload
+                list: action.payload,
             };
         case ADD_TODO:
             return {
@@ -25,7 +27,9 @@ function todoReducer(state = initialState, action) {
             return {
                 ...state,
                 list: filteredList,
-                active: action.payload === state.active ? null : state.active
+                active: action.payload === state.active ? (
+                    isPopulatedArray(state.list) ? state.list[0]._id : null
+                ) : state.active
             };
         case SET_ACTIVE_TODO:
             return {

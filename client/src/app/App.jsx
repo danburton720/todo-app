@@ -1,6 +1,5 @@
 import React from 'react';
 import io from 'socket.io-client';
-
 import TodosContainer from './containers/TodosContainer';
 import TasksContainer from './containers/TasksContainer';
 
@@ -17,12 +16,12 @@ export default class App extends React.Component {
         return (
             <div>
                 <div>
-                    <TodosContainer />
+                    <TodosContainer/>
                 </div>
                 <div>
-                    <TasksContainer />
+                    <TasksContainer/>
                 </div>
             </div>
-        )
+        );
     }
 }

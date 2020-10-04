@@ -18,7 +18,7 @@ export default class Todo extends React.PureComponent {
 
     delete(e) {
         e.stopPropagation();
-        this.props.delete(this.props.id)
+        this.props.delete(this.props.id);
     }
 
     render() {

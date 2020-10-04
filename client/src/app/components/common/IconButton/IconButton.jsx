@@ -10,3 +10,7 @@ export default class IconButton extends React.PureComponent {
         );
     }
 }
+
+IconButton.defaultProps = {
+    size: 18
+};

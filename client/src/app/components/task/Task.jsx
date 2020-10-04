@@ -1,14 +1,34 @@
 import React from 'react';
-import {Trash2} from 'react-feather';
+import {X} from 'react-feather';
 
 import IconButton from '../common/IconButton/IconButton';
+
+import Toggle from '../common/Toggle/Toggle';
 
 export default class Task extends React.Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            description: props.description
+        };
+
         this.delete = this.delete.bind(this);
         this.toggleCompleted = this.toggleCompleted.bind(this);
+        this.onChangeDescription = this.onChangeDescription.bind(this);
+        this.onBlurDescription = this.onBlurDescription.bind(this);
+    }
+
+    onChangeDescription(e) {
+        this.setState({
+            description: e.target.value
+        });
+    }
+
+    onBlurDescription() {
+        this.props.update(this.props.id, {
+            description: this.state.description
+        });
     }
 
     delete() {
@@ -22,19 +42,16 @@ export default class Task extends React.Component {
     render() {
         return (
             <div>
-                <div>
-                    <button
-                        enabled={this.props.completed}
-                        onClick={this.toggleCompleted}
-                    >
-                        TempToggle
-                    </button>
-                    completed: {this.props.completed.toString()}
-                    <input
-                        value={this.props.description}
-                    />
-                </div>
-                <IconButton icon={Trash2} onClick={this.delete}/>
+                <Toggle
+                    enabled={this.props.completed}
+                    onToggle={this.toggleCompleted}
+                />
+                <input
+                    value={this.state.description}
+                    onChange={this.onChangeDescription}
+                    onBlur={this.onBlurDescription}
+                />
+                <IconButton icon={X} onClick={this.delete}/>
             </div>
         );
     }
