@@ -5,8 +5,21 @@ const router = new express.Router();
 
 router.get('/todos/:todoId/tasks', async (req, res) => {
     const todoId = req.params.todoId;
+    const match = {
+        todoId
+    };
+    const sort = {};
 
-    await Task.find({ todoId }).then((tasks) => {
+    if (typeof req.query.completed === "boolean") {
+        match.completed = req.query.completed;
+    }
+
+    if (req.query.sortBy) {
+        const parts = req.query.sortBy.split(':');
+        sort[parts[0]] = parts[1] === 'desc' ? -1: 1;
+    }
+
+    await Task.find(match).sort(sort).then((tasks) => {
         res.send(tasks)
     }).catch((e) => {
         res.status(500).send()
