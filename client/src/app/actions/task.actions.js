@@ -16,6 +16,18 @@ export const getTasks = ( todoId ) => {
     };
 };
 
+export const addTask = ( todoId, data ) => {
+    return async dispatch => {
+        try {
+            await axiosInstance.post(`/todos/${todoId}/tasks`, data);
+            dispatch(getTasks(todoId));
+            socket.emit('tasksChanged', todoId);
+        }catch (e) {
+            console.log(e);
+        }
+    };
+};
+
 export const deleteTask = ( todoId, taskId ) => {
     return async dispatch => {
         try {
