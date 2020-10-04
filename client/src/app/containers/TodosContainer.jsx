@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {getTodos} from '../actions/todo.actions';
+import {getTodos, deleteTodo} from '../actions/todo.actions';
 import TodoList from '../components/todo/TodoList';
 
 class TodosContainer extends React.Component {
@@ -14,6 +14,7 @@ class TodosContainer extends React.Component {
             <div>
                 <TodoList
                     todos={this.props.list}
+                    delete={this.props.deleteTodo}
                 />
             </div>
         )
@@ -26,4 +27,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, {getTodos})(TodosContainer);
+export default connect(mapStateToProps, {getTodos, deleteTodo})(TodosContainer);

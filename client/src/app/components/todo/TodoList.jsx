@@ -8,7 +8,9 @@ export default class TodoList extends React.Component {
             return (
                 <Todo
                     key={todo._id}
+                    id={todo._id}
                     description={todo.description}
+                    delete={this.props.delete}
                 />
             )
         });

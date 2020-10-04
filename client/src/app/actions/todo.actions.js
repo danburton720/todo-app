@@ -15,3 +15,14 @@ export const getTodos = () => {
         }
     };
 };
+
+export const deleteTodo = (todoId) => {
+    return async dispatch => {
+        try {
+            await axiosInstance.delete(`/todos/${todoId}`);
+            dispatch(getTodos());
+        } catch (e) {
+            console.log(e);
+        }
+    };
+};
