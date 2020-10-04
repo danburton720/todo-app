@@ -1,13 +1,38 @@
 import React from 'react';
 import {connect} from "react-redux";
+
 import {getTasks, deleteTask, updateTask} from "../actions/task.actions";
+import {socket} from '../App';
+import {activeTodoSelector} from '../selectors/todos.selector';
+import isPopulatedArray from '../util/isPopulatedArray';
 
 import TaskList from '../components/task/TaskList';
 
 class TasksContainer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.toggleCompleted = this.toggleCompleted.bind(this);
+    }
 
     componentDidMount() {
-        this.props.getTasks();
+        if (this.props.activeTodo != null) {
+            this.props.getTasks(this.props.activeTodo);
+        }
+        socket.on('reRenderTasks', (todoId) => {
+            if (todoId === this.props.activeTodo) {
+                this.props.getTasks(this.props.activeTodo);
+            }
+        });
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.activeTodo !== null && this.props.activeTodo !== prevProps.activeTodo) {
+            this.props.getTasks(this.props.activeTodo);
+        }
+    }
+
+    toggleCompleted(taskId, completed) {
+        this.props.toggleCompleted(this.props.activeTodo, taskId, completed);
     }
 
     render() {
@@ -25,15 +50,17 @@ class TasksContainer extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        list: state.tasks.list
+        ...state.tasks,
+        activeTodo: state.todos.active,
+        ...activeTodoSelector(state)
     }
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        getTasks: () => dispatch(getTasks(ownProps.todoId)),
-        deleteTask: (taskId) => dispatch(deleteTask(ownProps.todoId, taskId)),
-        toggleCompleted: (taskId, completed) => dispatch(updateTask(ownProps.todoId, taskId, {completed}))
+        getTasks: (todoId) => dispatch(getTasks(todoId)),
+        deleteTask: (todoId, taskId) => dispatch(deleteTask(todoId, taskId)),
+        toggleCompleted: (todoId, taskId, completed) => dispatch(updateTask(todoId, taskId, {completed}))
     };
 };
 
