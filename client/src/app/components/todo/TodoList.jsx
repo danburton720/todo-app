@@ -4,7 +4,7 @@ import Todo from './Todo';
 
 import isPopulatedArray from '../../util/isPopulatedArray';
 
-import styles from '../../../themes/todos/todolist.scss';
+import styles from '../../../themes/todos/todoList.scss';
 
 export default class TodoList extends React.Component {
     returnTodos() {

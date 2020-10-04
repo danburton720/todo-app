@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../../../themes/todos/addtodo.scss';
+import styles from '../../../themes/todos/addTodo.scss';
 
 export default class AddTodo extends React.Component {
     constructor(props) {
@@ -14,6 +14,10 @@ export default class AddTodo extends React.Component {
 
         this.onSubmit = this.onSubmit.bind(this);
         this.onChangeTodo = this.onChangeTodo.bind(this);
+    }
+
+    componentDidMount() {
+        this.input.focus();
     }
 
     onSubmit(e) {
@@ -41,15 +45,17 @@ export default class AddTodo extends React.Component {
 
     render() {
         return (
-            <form className={styles.addTodo} onSubmit={this.onSubmit}>
+            <form className={styles.addTodoForm} onSubmit={this.onSubmit}>
                 <input
+                    ref={ref => this.input = ref}
                     placeholder="add new todo list"
                     onChange={this.onChangeTodo}
                     value={this.state.todo.value}
                 >
                 </input>
-                <div className={styles.buttonContainer}>
-                    <button type="submit">add</button>
+                <div className={styles.addTodoButtonWrapper}>
+                    <button className='primary' type='submit'>Create</button>
+                    <button onClick={this.props.cancel} className='primary inverted' type="button">Cancel</button>
                 </div>
             </form>
         );

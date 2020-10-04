@@ -8,5 +8,7 @@
 @media (max-width: 800px) {
   .responsiveNavBar {
     display: flex;
+    background-color: white;
+    z-index: 20;
   }
 }

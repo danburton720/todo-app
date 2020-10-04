@@ -1,15 +1,15 @@
-.todosPage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 80px;
-  width: 80%;
-}
-
 .todosContainer {
   flex: 1;
   display: flex;
   flex-direction: column;
+
+  h2 {
+    margin: 10px 0;
+  }
+}
+
+.todosHeader {
+  padding: 20px;
 }
 
 .addTodo {
@@ -18,9 +18,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #7f7f7f;
+  transition: 0.1s ease-in-out;
   span {
     margin: 0 20px;
     font-size: 0.8em;
     font-weight: 500;
   }
+}
+
+.addTodo:hover {
+  color: #0066FF;
 }
