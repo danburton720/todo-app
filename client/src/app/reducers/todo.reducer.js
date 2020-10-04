@@ -28,7 +28,7 @@ function todoReducer(state = initialState, action) {
                 ...state,
                 list: filteredList,
                 active: action.payload === state.active ? (
-                    isPopulatedArray(state.list) ? state.list[0]._id : null
+                    isPopulatedArray(filteredList) ? filteredList[0]._id : null
                 ) : state.active
             };
         case SET_ACTIVE_TODO:
