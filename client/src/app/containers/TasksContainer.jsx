@@ -1,16 +1,19 @@
 import React from 'react';
 import {connect} from "react-redux";
 
-import {getTasks, deleteTask, updateTask} from "../actions/task.actions";
+import {addTask, getTasks, deleteTask, updateTask} from "../actions/task.actions";
 import {socket} from '../App';
 import {activeTodoSelector} from '../selectors/todos.selector';
 import isPopulatedArray from '../util/isPopulatedArray';
 
 import TaskList from '../components/task/TaskList';
+import AddTask from '../components/task/AddTask';
 
 class TasksContainer extends React.Component {
     constructor(props) {
         super(props);
+
+        this.addTask = this.addTask.bind(this);
         this.toggleCompleted = this.toggleCompleted.bind(this);
     }
 
@@ -31,6 +34,10 @@ class TasksContainer extends React.Component {
         }
     }
 
+    addTask(data) {
+        this.props.addTask(this.props.activeTodo, data);
+    }
+
     toggleCompleted(taskId, completed) {
         this.props.toggleCompleted(this.props.activeTodo, taskId, completed);
     }
@@ -38,6 +45,7 @@ class TasksContainer extends React.Component {
     render() {
         return (
             <div>
+                <AddTask onSubmit={this.addTask}/>
                 <TaskList
                     delete={this.props.deleteTask}
                     toggleCompleted={this.props.toggleCompleted}
@@ -59,6 +67,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getTasks: (todoId) => dispatch(getTasks(todoId)),
+        addTask: (todoId, data) => dispatch(addTask(todoId, data)),
         deleteTask: (todoId, taskId) => dispatch(deleteTask(todoId, taskId)),
         toggleCompleted: (todoId, taskId, completed) => dispatch(updateTask(todoId, taskId, {completed}))
     };
