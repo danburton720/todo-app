@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddTask functionality form onSubmit should call the prop onSubmit after setting the input value to 'hello world' then remove the form and render the Plus component 1`] = `
+<AddTask
+  onSubmit={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "description": "hello world",
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+>
+  <div
+    className="addTask"
+    onClick={[Function]}
+  >
+    <Plus
+      size={18}
+    >
+      <svg
+        fill="none"
+        height={18}
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+        width={18}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <line
+          x1="12"
+          x2="12"
+          y1="5"
+          y2="19"
+        />
+        <line
+          x1="5"
+          x2="19"
+          y1="12"
+          y2="12"
+        />
+      </svg>
+    </Plus>
+    <span>
+      Add Task
+    </span>
+  </div>
+</AddTask>
+`;
+
+exports[`AddTask render should return a Plus component and an 'Add Task' span 1`] = `
+<AddTask
+  onSubmit={[MockFunction]}
+>
+  <div
+    className="addTask"
+    onClick={[Function]}
+  >
+    <Plus
+      size={18}
+    >
+      <svg
+        fill="none"
+        height={18}
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+        width={18}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <line
+          x1="12"
+          x2="12"
+          y1="5"
+          y2="19"
+        />
+        <line
+          x1="5"
+          x2="19"
+          y1="12"
+          y2="12"
+        />
+      </svg>
+    </Plus>
+    <span>
+      Add Task
+    </span>
+  </div>
+</AddTask>
+`;
+
+exports[`AddTask render should return an add task form 1`] = `
+<AddTask
+  onSubmit={[MockFunction]}
+>
+  <form
+    className="addTaskForm"
+    onSubmit={[Function]}
+  >
+    <input
+      onChange={[Function]}
+      placeholder="Jot down a task..."
+      value=""
+    />
+    <div>
+      <button
+        className="primary mr1"
+        disabled={true}
+        type="submit"
+      >
+        Add
+      </button>
+      <button
+        className="primary inverted"
+        onClick={[Function]}
+        type="button"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</AddTask>
+`;

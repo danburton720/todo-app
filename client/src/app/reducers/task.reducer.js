@@ -1,7 +1,7 @@
 import {SET_TASKS} from "../actions/task.actions";
 import {DELETE_TODO} from '../actions/todo.actions';
 
-const initialState = {
+export const initialState = {
     complete: [],
     incomplete: [],
     loaded: false,

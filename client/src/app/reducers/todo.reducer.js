@@ -14,7 +14,7 @@ function todoReducer(state = initialState, action) {
                 ...state,
                 loaded: !!action.meta.loaded,
                 active: isPopulatedArray(action.payload) ? action.payload[0]._id : state.active,
-                list: action.payload,
+                list: action.payload || [],
             };
         case ADD_TODO:
             return {

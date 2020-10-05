@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle render should return a toggle wrapper div which has a class name of active along with some child divs 1`] = `
+<div
+  className="toggleWrapper active"
+  onClick={[MockFunction]}
+>
+  <div
+    className="toggle"
+  >
+    <div
+      className="innerToggle"
+    />
+  </div>
+</div>
+`;
+
+exports[`Toggle render should return a toggle wrapper div with some child divs 1`] = `
+<div
+  className="toggleWrapper"
+  onClick={[MockFunction]}
+>
+  <div
+    className="toggle"
+  >
+    <div
+      className="innerToggle"
+    />
+  </div>
+</div>
+`;
