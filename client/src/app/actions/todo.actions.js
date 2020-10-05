@@ -1,6 +1,7 @@
+import 'regenerator-runtime/runtime';
+
 import axiosInstance from '../util/axiosInstance';
-import {getTasks} from "./task.actions";
-import {socket} from '../App';
+import {socket} from '../util/socket';
 
 export const SET_TODOS = 'SET_TODOS';
 export const ADD_TODO = 'ADD_TODO';

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResponsiveNavBar render should return an IconButton with an Menu icon 1`] = `
+<div
+  className="responsiveNavBar"
+>
+  <IconButton
+    icon={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "displayName": "Menu",
+        "propTypes": Object {
+          "color": [Function],
+          "size": [Function],
+        },
+        "render": [Function],
+      }
+    }
+    onClick={[Function]}
+    size={18}
+  />
+</div>
+`;
+
+exports[`ResponsiveNavBar render should return an IconButton with an X icon 1`] = `
+<div
+  className="responsiveNavBar"
+>
+  <IconButton
+    icon={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "displayName": "X",
+        "propTypes": Object {
+          "color": [Function],
+          "size": [Function],
+        },
+        "render": [Function],
+      }
+    }
+    onClick={[Function]}
+    size={18}
+  />
+</div>
+`;

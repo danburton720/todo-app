@@ -1,12 +1,10 @@
 import React from 'react';
-import io from 'socket.io-client';
 import TodosContainer from './containers/TodosContainer';
 import TasksContainer from './containers/TasksContainer';
 import ResponsiveNavBar from './components/common/ResponsiveNavBar/ResponsiveNavBar';
+import {socket} from '../../src/app/util/socket';
 
 import styles from '../themes/index.scss';
-
-export const socket = io('http://localhost:5000');
 
 export default class App extends React.Component {
     componentDidMount() {

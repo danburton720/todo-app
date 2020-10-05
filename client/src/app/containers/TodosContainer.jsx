@@ -5,7 +5,7 @@ import TodoList from '../components/todo/TodoList';
 import AddTodo from '../components/todo/AddTodo';
 
 import {Plus} from 'react-feather';
-import {socket} from '../App';
+import {socket} from '../util/socket';
 import SpinnerLoader from '../components/common/SpinnerLoader/SpinnerLoader';
 
 import styles from '../../themes/todos/todosContainer.scss';

@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddTodo render should return a form with an input and two buttons 1`] = `
+<AddTodo
+  cancel={[MockFunction]}
+  onSubmit={[MockFunction]}
+>
+  <form
+    className="addTodoForm"
+    onSubmit={[Function]}
+  >
+    <input
+      onChange={[Function]}
+      placeholder="add new todo list"
+      value=""
+    />
+    <div
+      className="addTodoButtonWrapper"
+    >
+      <button
+        className="primary"
+        type="submit"
+      >
+        Create
+      </button>
+      <button
+        className="primary inverted"
+        onClick={[MockFunction]}
+        type="button"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</AddTodo>
+`;

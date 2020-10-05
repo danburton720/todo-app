@@ -10,7 +10,8 @@
   "jest": {
     "testEnvironment": "node",
     "testPathIgnorePatterns": [
-      "/server/src/__tests__/fixtures/"
+      "/server/src/__tests__/fixtures/",
+      "/client"
     ]
   },
   "repository": {

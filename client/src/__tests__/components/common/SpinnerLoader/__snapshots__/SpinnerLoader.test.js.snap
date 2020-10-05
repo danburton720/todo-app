@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SpinnerLoader render should return a div with a Loader component 1`] = `
+<div
+  className="spinnerLoaderWrapper"
+>
+  <Loader
+    className=""
+    color="#0066ff"
+    height={50}
+    style={Object {}}
+    timeout={100000}
+    type="Oval"
+    visible={true}
+    width={50}
+  />
+</div>
+`;

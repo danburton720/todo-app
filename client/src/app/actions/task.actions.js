@@ -1,18 +1,13 @@
+import 'regenerator-runtime/runtime';
+
 import axiosInstance from '../util/axiosInstance';
-import {socket} from '../App';
+import {socket} from '../util/socket';
+
+import {getAllTasks} from '../actions/index.actions';
 
 export const SET_TASKS = 'SET_TASKS';
 
-export const getAllTasks = ( todoId , fetchingMore) => {
-    return async dispatch => {
-        // fetch complete tasks
-        dispatch(getTasks(todoId, true, fetchingMore));
-        // fetch incomplete tasks
-        dispatch(getTasks(todoId, false, fetchingMore));
-    };
-};
-
-const getTasks = ( todoId, completed, fetchingMore = false) => {
+export const getTasks = ( todoId, completed, fetchingMore = false) => {
     return async dispatch => {
         dispatch({
             type: SET_TASKS,

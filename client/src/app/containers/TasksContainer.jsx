@@ -1,13 +1,14 @@
 import React from 'react';
 
 import TaskList from '../components/task/TaskList';
-import {addTask, deleteTask, getAllTasks, updateTask} from "../actions/task.actions";
+import {addTask, deleteTask, updateTask} from "../actions/task.actions";
+import {getAllTasks} from '../actions/index.actions';
 
 import {connect} from "react-redux";
 import AddTask from "../components/task/AddTask";
 
 import isPopulatedArray from '../util/isPopulatedArray';
-import {socket} from '../App';
+import {socket} from '../util/socket';
 import {activeTodoSelector} from '../selectors/todos.selector';
 import SpinnerLoader from '../components/common/SpinnerLoader/SpinnerLoader';
 
