@@ -1,0 +1,30 @@
+.todoItem {
+  padding: 16px 0 16px 16px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  .todoDescription {
+    flex: 1;
+    font-size: 0.8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .todoActions {
+    display: flex;
+    padding: 0 16px;
+    .todoButton {
+      color: #333;
+      background-color: rgba(255,255,255,.5);
+      border-radius: 5px;
+    }
+  }
+}
+
+.todoItem:hover {
+  background: #dedede;
+}
+
+.todoItem.active {
+  background: #0066FF;
+  color: white;
+}

@@ -1,0 +1,40 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "Todo app",
+  "main": "server/src/index.js",
+  "scripts": {
+    "start": "env-cmd -f server/config/dev.env nodemon server/src/index.js",
+    "test": "env-cmd -f ./server/config/dev.env jest --watch --runInBand"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/server/src/__tests__/fixtures/",
+      "/client"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danburton720/todo-app.git"
+  },
+  "author": "Dan Burton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danburton720/todo-app/issues"
+  },
+  "homepage": "https://github.com/danburton720/todo-app#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-query-boolean": "^2.0.0",
+    "mongoose": "^5.10.7",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "jest": "^26.4.2",
+    "nodemon": "^2.0.4",
+    "supertest": "^5.0.0"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "name": "todo-app-frontend",
+  "version": "1.0.0",
+  "description": "Todo App Frontend",
+  "author": "Dan Burton",
+  "license": "ISC",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open --watch",
+    "test": "jest",
+    "build": "webpack --mode production"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "peerDependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "classnames": "^2.2.6",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.1",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-feather": "^2.0.8",
+    "react-loader-spinner": "^3.1.14",
+    "react-redux": "^6.0.0",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "regenerator-runtime": "^0.13.5",
+    "reselect": "^4.0.0",
+    "socket.io-client": "^2.3.1",
+    "uuid": "^3.3.2",
+    "webpack": "^4.23.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.0.0",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "axios-mock-adapter": "^1.18.2",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^3.2.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "enzyme-to-json": "^3.3.5",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^2.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.8.0",
+    "jest-cli": "^24.8.0",
+    "mini-css-extract-plugin": "^0.4.4",
+    "node-sass": "^4.9.4",
+    "redux-mock-store": "^1.5.4",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "unused-files-webpack-plugin": "^3.4.0",
+    "url-loader": "^1.1.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10",
+    "webpack-md5-hash": "0.0.6"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "html"
+    ],
+    "verbose": true,
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "./enzymeSetup.js"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|less|scss)$": "identity-obj-proxy"
+    }
+  }
+}
